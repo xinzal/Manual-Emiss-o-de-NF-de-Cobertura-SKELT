@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="https://www.melhorcomprar.com.br/images/lojas/cupom-desconto-skelt.webp">
+    <title>Manual Completo: Emissão de NF de Cobertura - Skelt</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Paleta de Cores Moderna */
+            --primary-color: #0f172a;       /* Dark Slate */
+            --primary-light: #1e293b;       
+            --accent-color: #3b82f6;        /* Bright Blue */
+            --accent-hover: #2563eb;
+            --danger-color: #ef4444;
+            --success-color: #10b981;
+            --text-main: #334155;
+            --text-heading: #1e293b;
+            --bg-body: #f1f5f9;
+            --bg-card: #ffffff;
+            --sidebar-width: 280px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            display: flex;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        /* --- Navegação Lateral --- */
+        nav {
+            width: var(--sidebar-width);
+            background: linear-gradient(180deg, var(--primary-color) 0%, var(--primary-light) 100%);
+            color: white;
+            height: 100vh;
+            position: fixed;
+            padding: 30px 20px;
+            overflow-y: auto;
+            z-index: 100;
+            box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+        }
+
+        /* Scrollbar customizada para o menu */
+        nav::-webkit-scrollbar { width: 6px; }
+        nav::-webkit-scrollbar-thumb { background-color: rgba(255,255,255,0.2); border-radius: 4px; }
+
+        nav h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 20px;
+            font-weight: 700;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 10px;
+        }
+
+        nav ul { list-style: none; }
+        nav li { margin-bottom: 8px; }
+
+        nav a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            display: block;
+            padding: 12px 15px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+            transform: translateX(5px);
+        }
+
+        nav a.active {
+            background-color: var(--accent-color);
+            color: white;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+        }
+
+        /* --- Conteúdo Principal --- */
+        main {
+            margin-left: var(--sidebar-width);
+            padding: 50px;
+            width: 100%;
+            max-width: 1200px;
+            margin-right: auto;
+        }
+
+        header {
+            margin-bottom: 60px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 30px;
+        }
+
+        h1 { 
+            color: var(--text-heading); 
+            font-weight: 700;
+            font-size: 2.5rem;
+            letter-spacing: -1px;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            color: #64748b;
+            font-size: 1.1rem;
+        }
+
+        h2 { color: var(--primary-color); margin-top: 30px; margin-bottom: 15px; }
+
+        /* --- Cards das Etapas --- */
+        .step-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #e2e8f0;
+            scroll-margin-top: 40px;
+            position: relative;
+            transition: transform 0.2s, box-shadow 0.2s;
+            overflow: hidden;
+        }
+
+        .step-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .step-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: var(--accent-color);
+        }
+
+        .step-title {
+            font-size: 1.5rem;
+            color: var(--text-heading);
+            margin-bottom: 25px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        /* --- Componentes UI --- */
+        
+        /* Teclas de Atalho */
+        .key-shortcut {
+            background-color: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-bottom: 3px solid #cbd5e1;
+            border-radius: 6px;
+            padding: 2px 8px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            color: #475569;
+            font-size: 0.85em;
+            display: inline-block;
+        }
+
+        /* Caixa de Destaque */
+        .highlight-box {
+            background-color: #eff6ff;
+            border-left: 4px solid var(--accent-color);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+            color: #1e3a8a;
+        }
+
+        /* Caixa de Aviso */
+        .warning-box {
+            background-color: #fef2f2;
+            border-left: 4px solid var(--danger-color);
+            padding: 20px;
+            margin: 20px 0;
+            color: #991b1b;
+            font-weight: 500;
+            border-radius: 0 8px 8px 0;
+            display: flex;
+            align-items: start;
+            gap: 10px;
+        }
+        
+        .warning-box strong { color: #7f1d1d; }
+
+        /* Bloco de Código */
+        .code-block {
+            background-color: #1e293b;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 15px 0;
+            word-break: break-all;
+            border: 1px solid #334155;
+            font-size: 0.95rem;
+        }
+
+        /* --- Grid de Visualização da Nota --- */
+        .invoice-guide {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            background: #f8fafc;
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px dashed #cbd5e1;
+        }
+        
+        .invoice-part {
+            background: white;
+            padding: 20px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .invoice-part h4 { 
+            color: var(--accent-color); 
+            margin-bottom: 15px; 
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+        
+        .invoice-part ul { padding-left: 20px; color: #475569; font-size: 0.95rem; }
+        .invoice-part li { margin-bottom: 8px; }
+
+        /* --- PDF Embed --- */
+        .pdf-viewer {
+            width: 100%;
+            height: 800px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: var(--shadow-md);
+        }
+
+        /* --- Checklists --- */
+        .checklist li {
+            list-style: none;
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 30px;
+            color: #334155;
+        }
+        .checklist li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 20px;
+            width: 20px;
+            background-color: #dcfce7;
+            color: var(--success-color);
+            font-weight: bold;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        /* Estilização de listas numeradas simples */
+        ol { padding-left: 25px; color: #334155; margin-bottom: 15px; }
+        ol li { margin-bottom: 10px; padding-left: 5px; }
+        ol li::marker { color: var(--accent-color); font-weight: bold; }
+
+        /* --- Responsividade --- */
+        @media (max-width: 900px) {
+            body { flex-direction: column; }
+            
+            nav { 
+                width: 100%; 
+                height: auto; 
+                position: relative; 
+                padding: 15px;
+                white-space: nowrap;
+                overflow-x: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav h3 { display: none; }
+            
+            nav ul { 
+                display: flex; 
+                gap: 10px; 
+                overflow-x: auto; 
+                width: 100%; 
+                padding-bottom: 10px;
+            }
+            
+            nav li { margin-bottom: 0; flex-shrink: 0; }
+
+            nav a:hover { transform: none; }
+
+            main { margin-left: 0; padding: 20px; }
+            
+            .step-card { padding: 25px; }
+            
+            h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <h3>Guia de Navegação</h3>
+        <ul>
+            <li><a href="#acesso">1. Acesso ao Sistema</a></li>
+            <li><a href="#leitura-nf">2. Entendendo a NF</a></li>
+            <li><a href="#configuracao">3. Configuração Inicial</a></li>
+            <li><a href="#insercao">4. Inserção de Itens</a></li>
+            <li><a href="#multiplos">5. Múltiplos Itens</a></li>
+            <li><a href="#pesquisa">6. Pesquisa de Código</a></li>
+            <li><a href="#unidade">7. Conversão de Unidade</a></li>
+            <li><a href="#mensagem">8. Mensagem Obrigatória</a></li>
+            <li><a href="#finalizacao">9. Conferência</a></li>
+            <li><a href="#salvar">10. Salvando Arquivo</a></li>
+            <li><a href="#manual-pdf">11. Manual PDF</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <header>
+            <h1>Manual de Emissão de NF de Cobertura</h1>
+            <p>Procedimento operacional padrão para emissão no sistema KORP (Versão Completa).</p>
+            <p style="font-size: 0.9rem; margin-top: 10px; color: #94a3b8;"><em>Atualizado com base no documento oficial.</em></p>
+<p style="font-size: 0.9rem; margin-top: 10px; color: #94a3b8;"><em>Desenvolvido por: João Lucas - Aprendiz supply.</em></p>
+        </header>
+
+        <section id="acesso" class="step-card">
+            <div class="step-title">1. Acesso ao Sistema</div>
+            <p>Na tela inicial do KORP, siga o caminho:</p>
+            <div class="highlight-box">
+                <strong>Faturamento &rarr; Emissão de Nota Fiscal</strong>
+            </div>
+            <p>Na tela exibida, clique no botão <strong>"Nova"</strong> (ícone de papel).</p>
+        </section>
+
+        <section id="leitura-nf" class="step-card">
+            <div class="step-title">2. Como Ler a Nota de Referência</div>
+            <p>Para preencher a nova nota corretamente, você deve saber localizar os dados na nota fiscal de entrada (Referência).</p>
+            
+            <div class="invoice-guide">
+                <div class="invoice-part">
+                    <h4>Topo da Nota (Cabeçalho)</h4>
+                    <ul>
+                        <li><strong>Número da NF:</strong> Ex: 38601</li>
+                        <li><strong>Natureza da Operação:</strong> Ex: Venda, Remessa</li>
+                        <li><strong>Fornecedor:</strong> Ex: PROVITAL DO BRASIL</li>
+                        <li><strong>Destino (Fábrica):</strong> Ex: FUTURE BRANDS - UNA</li>
+                        <li><strong>Data de Emissão:</strong> Ex: 08/10/2025</li>
+                    </ul>
+                </div>
+                
+                <div class="invoice-part">
+                    <h4>Meio da Nota (Itens)</h4>
+                    <ul>
+                        <li><strong>Descrição do Produto:</strong> Ex: ALTHEOSTEM</li>
+                        <li><strong>NCM/SH:</strong> Código fiscal (Ex: 13021999)</li>
+                        <li><strong>Unidade (UN):</strong> Ex: KG ou UN</li>
+                        <li><strong>Quantidade:</strong> Ex: 20</li>
+                        <li><strong>Valor Unitário e Total:</strong> Fundamental para conferência.</li>
+                    </ul>
+                </div>
+
+                <div class="invoice-part">
+                    <h4>Rodapé (Dados Adicionais)</h4>
+                    <ul>
+                        <li><strong>CNPJ/IE:</strong> Dados do destinatário.</li>
+                        <li><strong>Número do Pedido:</strong> Ex: 1534/1564</li>
+                        <li><strong>Nota de Remessa:</strong> Se houver, estará aqui.</li>
+                        <li><strong>Endereço de Entrega:</strong> Local físico da entrega.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="configuracao" class="step-card">
+            <div class="step-title">3. Configuração do Cabeçalho</div>
+            <p style="margin-bottom: 15px;">Antes de inserir itens, preencha obrigatoriamente estes 4 campos:</p>
+            <ul class="checklist">
+                <li>Marque a opção: <strong>Fatura direto do estoque</strong>.</li>
+                <li>Marque a opção: <strong>Fornecedor</strong>.</li>
+                <li>No campo "Natureza da Operação", digite <strong>49</strong> (Remessa Simbólica).</li>
+                <li>No campo "Código", insira o <strong>código da fábrica</strong> (Ex: UNA).</li>
+            </ul>
+            <div class="warning-box">
+                <div>
+                    <strong>Atenção:</strong> A configuração incorreta destes campos impedirá a emissão correta da nota.
+                </div>
+            </div>
+        </section>
+
+        <section id="insercao" class="step-card">
+            <div class="step-title">4. Inserção de Item Único</div>
+            <p>Para adicionar um produto:</p>
+            <ol>
+                <li>No grid de itens, clique na seta para baixo (ou no espaço em branco).</li>
+                <li>Preencha o <strong>Código do Produto</strong>.</li>
+                <li>Preencha a <strong>Quantidade</strong>.</li>
+                <li>Preencha o <strong>Valor Unitário</strong>.</li>
+            </ol>
+            <p style="margin-top: 10px; font-size: 0.9em; color: #64748b;">Se necessário, preencha o campo "Unidade de conversão" (veja Passo 7).</p>
+        </section>
+
+        <section id="multiplos" class="step-card">
+            <div class="step-title">5. Múltiplos Itens e Atalhos</div>
+            <p>O sistema possui atalhos de teclado específicos para agilizar o processo:</p>
+            
+            <div class="highlight-box">
+                <p style="margin-bottom: 10px;"><strong>Adicionar novo item:</strong> Após preencher o primeiro produto, pressione a tecla <span class="key-shortcut">Seta para Baixo</span>.</p>
+                <p><strong>Salvar alterações:</strong> Ao finalizar, pressione <span class="key-shortcut">Seta para Baixo</span> e depois <span class="key-shortcut">Seta para Cima</span>.</p>
+            </div>
+            
+            <div class="warning-box">
+                <div>
+                    <strong>Importante:</strong> Mantenha exatamente a mesma ordem dos itens apresentada na nota fiscal de referência.
+                </div>
+            </div>
+        </section>
+
+        <section id="pesquisa" class="step-card">
+            <div class="step-title">6. Não tenho o Código do Produto</div>
+            <p>Se você não tiver o código, precisará buscar na nota de entrada no sistema:</p>
+            <ol>
+                <li>Acesse: <strong>Compras &rarr; Entrada de NF</strong>.</li>
+                <li>Clique em "Pesquisar Nota".</li>
+                <li>Digite o número da Nota Fiscal de Venda no campo "Nota Fiscal" e tecle <span class="key-shortcut">Enter</span>.</li>
+                <li>Abra a nota correspondente à fábrica.</li>
+                <li>Copie os códigos, quantidades e valores exibidos.</li>
+            </ol>
+        </section>
+
+        <section id="unidade" class="step-card">
+            <div class="step-title">7. Cadastro de Unidade de Conversão</div>
+            <p>Se a unidade da nota (ex: KG) for diferente do sistema (ex: UN), e o sistema não reconhecer a conversão automaticamente:</p>
+            <p style="margin: 10px 0;">Acesse: <strong>Logística &rarr; Cadastro de Produto</strong>.</p>
+            <p>Na aba "Conversões de Unidade", adicione uma nova linha pressionando <span class="key-shortcut">Seta para Baixo</span> e preencha:</p>
+            <ul class="checklist" style="margin-top: 15px;">
+                <li><strong>Unidade:</strong> A unidade desejada.</li>
+                <li><strong>Qtd. Conversão:</strong> Sempre <strong>1</strong>.</li>
+                <li><strong>Descrição:</strong> Mesmo nome da unidade.</li>
+                <li><strong>Marque a opção:</strong> "Vendas".</li>
+                <li><strong>Fator de Venda:</strong> Preencha com <strong>1</strong>.</li>
+            </ul>
+            <p style="margin-top: 15px;">Salve usando <span class="key-shortcut">Seta para Baixo</span> e <span class="key-shortcut">Seta para Cima</span>.</p>
+        </section>
+
+        <section id="mensagem" class="step-card">
+            <div class="step-title">8. Mensagem da Nota Fiscal (Obrigatório)</div>
+            <p>Antes de emitir, clique no botão/aba <strong>"Mensagem Nota Fiscal"</strong>.</p>
+            <p>Adicione uma linha e insira o texto seguindo estritamente este padrão:</p>
+            
+            <div class="code-block">
+                NF (NUMERO DA NF DE VENDA) - (FORNECEDOR) "NF DA REMESSA (NUMERO DA NF DE REMESSA SE HOUVER)"
+            </div>
+            
+            <p>Exemplo: <em>NF 12345 - PROVITAL "NF DA REMESSA 54321"</em></p>
+            <p>Para salvar: <span class="key-shortcut">Seta para Baixo</span> e <span class="key-shortcut">Seta para Cima</span>.</p>
+        </section>
+
+        <section id="finalizacao" class="step-card">
+            <div class="step-title">9. Conferência e Emissão</div>
+            <p>Não emita a nota sem conferir os totais.</p>
+            <ol>
+                <li>Clique no ícone <strong>Salvar</strong> (disquete).</li>
+                <li>Clique em <strong>Visualizar DANFE</strong>.</li>
+                <li>Compare o campo <strong>"Total Produto"</strong> da DANFE gerada com a nota de referência.</li>
+                <li>Se os valores baterem, feche a visualização e clique no botão <strong>Emitir</strong> na tela principal.</li>
+            </ol>
+        </section>
+
+        <section id="salvar" class="step-card">
+            <div class="step-title">10. Salvando o Arquivo PDF</div>
+            <p>Após a emissão, visualize a DANFE novamente e salve o arquivo.</p>
+            <div class="highlight-box">
+                <strong>Nome do Arquivo:</strong> NF (número da nota de cobertura)<br>
+                <em>Exemplo: NF 3541.pdf</em>
+            </div>
+            <p>O número da nota de cobertura aparece no canto superior da tela após a emissão.</p>
+            <div class="warning-box">
+                <div>
+                    <strong>Lembrete Final:</strong> Não esqueça de adicionar o número da nota de cobertura na planilha de controle de remessas.
+                </div>
+            </div>
+        </section>
+
+        <section id="manual-pdf" class="step-card">
+            <div class="step-title">11. Manual Original Completo (PDF)</div>
+            <p style="margin-bottom: 20px;">Abaixo você pode consultar o documento original na íntegra para verificar imagens e detalhes adicionais.</p>
+            <embed src="manual.pdf" type="application/pdf" class="pdf-viewer">
+        </section>
+
+    </main>
+
+    <script>
+        // Script para destacar link ativo na navegação
+        const navLinks = document.querySelectorAll('nav a');
+        const sections = document.querySelectorAll('section');
+
+        // Função para atualizar o link ativo
+        function updateActiveLink() {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                // Ajuste no offset para considerar o padding e header
+                if (scrollY >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveLink);
+        // Chama no carregamento caso a página já inicie rolada
+        window.addEventListener('load', updateActiveLink);
+    </script>
+</body>
+</html>
